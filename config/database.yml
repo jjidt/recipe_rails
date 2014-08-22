@@ -1,0 +1,14 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: recipe_book_development
+
+test:
+  <<: *default
+  database: recipe_book_test
+
