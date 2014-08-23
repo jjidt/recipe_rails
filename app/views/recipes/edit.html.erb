@@ -1,0 +1,40 @@
+<h3>Edit Recipe</h3>
+
+<%= render('layouts/errors', :object => @recipe) %>
+
+<form method='post' action='/ingredients'>
+  <input type='hidden' name='_method' value='patch'>
+  <input type="hidden" name='id' value='<%= @recipe.id%>'>
+  <p>
+    <label for='name'>Name of Ingredient</label>
+    <input id='name' name='ingredients[name]' type='text'>
+  </p>
+  <p>
+    <label for='amount'>Amount of Ingredient</label>
+    <input id='amount' name='ingredients[amount]' type='text'>
+  </p>
+   <p>
+    <button>Add</button>
+  </p>
+</form>
+<form method='post' action='/recipes'>
+  <input type='hidden' name='_method' value='patch'>
+  <input type="hidden" name='id' value='<%= @recipe.id%>'>
+    <label for='instruction'>Instructions</label>
+  </p>
+  <p>
+    <textarea name='recipes[instruction]' style="width: 400px; height: 250px;"><%= @recipe.instruction %></textarea>
+  </p>
+  <button>Change Instructions</button>
+</form>
+
+<h3>Instructions</h3>
+  <p><%= @recipe.instruction %></p>
+
+<h3>Ingredients</h3>
+  <p>
+    <ul>
+      <% @recipe.ingredients.each do |ingredient| %>
+        <li><%= ingredient.name + "   Amount:  " + ingredient.amount%><a data-confirm='are you sure?' data-method='delete' href='/ingredients/<%= ingredient.id %>'>&nbsp &nbsp delete</a></li>
+      <% end %>
+    </ul>

@@ -1,0 +1,11 @@
+<h2><%= @recipe.name %></h2>
+<h3>Instructions</h3>
+  <p><%= @recipe.instruction %></p>
+
+<h3>Ingredients</h3>
+  <ul>
+    <% @recipe.ingredients.each do |ingredient| %>
+      <li><%= ingredient.name %> Amount: <%= ingredient.amount %></li>
+    <% end %>
+  </ul>
+<a href='<%= @recipe.id %>/edit'>Update Recipe</a>

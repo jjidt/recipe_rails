@@ -1,0 +1,14 @@
+<h3>Add a New Recipe</h3>
+
+<%= render('layouts/errors', :object => @recipe) %>
+
+<form method='post' action='/recipes'>
+  <p>
+    <label for='name'>Name of Recipe</label>
+    <input id='name' name='recipes[name]' type='text'>
+  </p>
+    <button>Create</button>
+  </p>
+</form>
+
+
